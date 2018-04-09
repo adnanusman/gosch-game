@@ -2,6 +2,7 @@ import BaseScene from './BaseScene';
 import Controller from '../util/Controller';
 import Character from 'objects/Character';
 import DOMModal from 'objects/ui/DOMModal';
+import db from 'util/db';
 
 export default class DungeonScene extends BaseScene {
 
@@ -90,6 +91,9 @@ export default class DungeonScene extends BaseScene {
         },
         data: character.stats
       });
+      let characterStats = character.stats;
+      db.open();
+      db.score.add({name: 'dummyName', kills: characterStats.kills, shotsFired: characterStats.shots, accuracy: characterStats.accuracy, timeAlive: characterStats.timeAlive})
     }
   }
 
