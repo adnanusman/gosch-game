@@ -93,7 +93,14 @@ export default class DungeonScene extends BaseScene {
       });
       let characterStats = character.stats;
       db.open();
-      db.score.add({name: 'dummyName', kills: characterStats.kills, shotsFired: characterStats.shots, accuracy: characterStats.accuracy, timeAlive: characterStats.timeAlive})
+      db.spData.
+        add({
+          name: 'dummyName', 
+          kills: characterStats.kills, 
+          shotsFired: characterStats.shots, 
+          accuracy: characterStats.accuracy, 
+          timeAlive: characterStats.timeAlive
+        })
     }
   }
 
@@ -113,7 +120,6 @@ export default class DungeonScene extends BaseScene {
     this.delay = 100;
     this.enemyList = [];
     this.virtualTime = 0;
-
   }
 
   update() {
